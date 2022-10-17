@@ -3,7 +3,7 @@ The sample grpc-service is taken from [grpc.io](https://grpc.io/docs/languages/p
 ## Environment Details
 
 1. **Language:** `Python3.8+`
-2. **Hosting:** `Azure VM running Ubuntu Focal Fossa`
+2. **Hosting:** `Azure/AWS or any Internet accessible VM running Ubuntu`
 3. **Local Proxy for TLS Termination:** `Envoy 1.18.2`
 4. **Edge Proxy:** `Cloudflare Orange Cloud (Free Plan)`
 5. **SSL:** `Lets Encrypt`
@@ -12,7 +12,7 @@ The sample grpc-service is taken from [grpc.io](https://grpc.io/docs/languages/p
 
 ### Starting gRPC Server
 
-1. Clone this repo on Azure VM running Ubuntu
+1. Clone this repo on Azure/AWS or any Internet accessible VM running Ubuntu.
 2. Install Python3.8+ on Azure VM
 3. Install required python package
 4. Build gRPC App
@@ -26,22 +26,24 @@ The sample grpc-service is taken from [grpc.io](https://grpc.io/docs/languages/p
 
 ### Configure Cloudflare
 
-As we are using Free plan, there is no option to have custom origin and we need to have a domain under Cloudflare DNS. For this PoC, we already have a domain managed by Cloudflare i.e. [yogeshsharma.me](https://yogeshsharma.me). 
+As we are using Free plan, there is no option to have custom origin. As an alternative, we need to have a domain under Cloudflare DNS. For this PoC, we already have a domain managed by Cloudflare i.e. [yogeshsharma.me](https://yogeshsharma.me). 
 
-1. Create a domain and proxy it through cloudflare orange cloud.
+1. Create a sub-domain and proxy it through cloudflare orange cloud.
 2. Enable gRPC routing on CloudFlare.
 
 ## Detailed Steps
 
 ### Pre-requisite
 
-1. Azure VM running Ubuntu
+1. Azure/AWS or any Internet accessible VM running Ubuntu with port 443 allowed to Internet.
 2. Cloudflare account with a domain under its management.
 3. Understanding of basic Linux commands
-4. Python3.8+ installed on Azure VM
+4. Python3.8+ installed on VM. If Ubuntu, you can use `deadsnakes` repo for Installation. Refer steps as available on [GitHub gist](https://gist.github.com/plembo/6bc141a150cff0369574ce0b0a92f5e7)
 
 
 ### Starting gRPC Server
+
+After login to VM, 
 
 1. Create a directory and switch to it
     ```bash
@@ -62,7 +64,7 @@ As we are using Free plan, there is no option to have custom origin and we need 
 4. Build Proto
 
     ```bash
-    cd /app/grpc-service/grpc-app/python
+    cd /app/grpc-service/grpc-app/python/route_guide
     python3 -m grpc_tools.protoc -I../../protos --python_out=. --grpc_python_out=. ../../protos/route_guide.proto
     ```
 
