@@ -153,7 +153,7 @@ Example:
 
 ### Starting Envoy Proxy
 
-1. [Install Envoy on Ubuntu Linux¶](https://www.envoyproxy.io/docs/envoy/latest/start/install#install-envoy-on-ubuntu-linux)
+1. [Install Envoy on Ubuntu Linux](https://www.envoyproxy.io/docs/envoy/latest/start/install#install-envoy-on-ubuntu-linux)
 2. SSL enabled config is available in `envoy/envoy-ssl.yaml`. Start envoy with command as below:
 
 ```bash
