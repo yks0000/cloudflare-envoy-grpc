@@ -67,19 +67,21 @@ After login to VM,
     cd /app/grpc-service/grpc-app/python/route_guide
     python3 -m grpc_tools.protoc -I../../protos --python_out=. --grpc_python_out=. ../../protos/route_guide.proto
     ```
+   
+   The generated code files are called `route_guide_pb2.py` and `route_guide_pb2_grpc.py`
 
 5. Run gRPC Server on Azure VM
 
     ```bash
-    cd /app/grpc-service/grpc-app/python
+    cd /app/grpc-service/grpc-app/python/route_guide
     python3 route_guide_server.py
     ```
    
-6. Test gRPC locally from Azure VM. (Run only once)
+6. Test gRPC locally from Azure VM. (Run only once from another terminal)
 
     ```bash
-    cd /app/grpc-service/grpc-app/python
-    python3 route_guide_client.py
+    cd /app/grpc-service/grpc-app/python/route_guide
+    python3 route_guide_local_client.py
     ```
 
 ### Get Certificate from Lets Encrypt
