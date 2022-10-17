@@ -208,4 +208,4 @@ grpc._channel._InactiveRpcError: <_InactiveRpcError of RPC that terminated with:
 ```
 
 
-Enable gRPC in Cloudflare again and this time it client should connect successfully.
+Enable gRPC in Cloudflare again and this time gRPC client should connect successfully.
